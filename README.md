@@ -2,7 +2,7 @@
 
 ### [FCC Intermediate Project - 4/4 : Twitch.tv-Streamer](https://www.freecodecamp.org/challenges/use-the-twitchtv-json-api)
 
-**Description**: Twitch.tv-Streamer is a custom viewer for online/offline streamers of Twitch using  *[this](https://wind-bow.glitch.me/)* api.
+**Description**: Twitch.tv Streamer is a custom viewer for online/offline streamers of Twitch using  *[this](https://wind-bow.glitch.me/)* api.
 
 **User Story**:
 * I can see whether Free Code Camp is currently streaming on Twitch.tv. 

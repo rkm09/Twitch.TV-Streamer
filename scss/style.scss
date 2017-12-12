@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css?family=Underdog');
+@import url('https://fonts.googleapis.com/css?family=Shojumaru');
+@import url('https://fonts.googleapis.com/css?family=Snowburst+One');
+$bg : #dabcf6;
+$hd : black;
+$on : green;
+$off : red;
+$names : BlueViolet;
+$card : rgba(255, 255, 255,0.5);
+$search:rgba(255, 153, 204,0.5);
+$font-hd:'Shojumaru',helvetica;
+$font-gen:'Underdog',helvetica;
+$font-foo:'Snowburst One',helvetica;
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+/*********************************************/
+body{
+  background:repeating-linear-gradient(Gray,DarkGray 5px,BlueViolet 5px);
+  font-family:$font-gen;
+  font-size:18px;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  color:$hd;
+}
+.wrapper{
+  margin-top:15px;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto auto auto 50px;
+  grid-gap:15px;
+  grid-template-areas:
+    ". . h h h h h h h h . ."
+    ". . m m m m m m m m . ."
+    ". . c c c c c c c c . ."
+    ". . f f f f f f f f . ."
+}
+.header{
+  grid-area:h;
+  text-align:center;
+  color: $hd;
+  font-family:$font-hd;
+  font-size: 45px;
+  text-shadow: 0px 6px 8px blueviolet, 0 -6px 8px yellow , -6px 0 5px plum;
+  padding:15px;
+  letter-spacing:4px;
+  word-spacing:5px;
+}
+.menu{
+  grid-area:m;
+  text-align:center;
+  font-family :$font-hd;
+  font-size: 30px;
+  padding:10px;
+  border-radius:2px;
+}
+.search{
+  outline:none!important;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+  border-radius:10px;
+  border: 1px solid rgba(0, 0, 0,0.8);
+  margin:10px;
+  padding:10px;
+  background-color:$search;
+  @include box-shadow(0px 0px 10px 1px blueviolet);
+  &:hover{
+  @include box-shadow(0px 0px 10px 8px blueviolet,0px 0px 10px 1px black inset); 
+  }  
+  #sr-ico{
+    font-size:2em;
+    color:#000;
+    padding:0px;
+    margin:0px;
+  }
+  #sr{
+  background-color:transparent ;
+  border:none;
+  border-bottom:2px solid rgba(0,0,0,0.8);
+  font-size: 22px;
+  font-family:$font-gen;
+  color:black;  
+  margin: 0 25px;
+  padding:0;
+  outline:none!important;
+  }
+}
+
+a{
+  cursor:pointer;
+  text-decoration:none!important;
+  outline:none!important;
+  color:$hd;
+&:hover,&:active,&:visited{
+  text-decoration:none!important;
+  outline:none!important;
+ }
+}
+
+.streamers{
+  grid-area:c;
+  align-items:center;
+  border:2px solid white;
+  border-radius:10px;
+  @include box-shadow(0px 0px 10px 1px blueviolet);
+  padding:5px;
+}
+footer{
+  grid-area:f;
+}
+.selector{
+   display:inline;
+   text-shadow: 0px 5px 4px white , 0 -0.5px 2px yellow;
+   padding: 10px;
+   cursor:pointer;
+  &:hover{
+    text-shadow: 0 -5px 4px white ;
+  }
+}
+
+.streams{
+  border-radius:10px;
+  border: 1px solid black;
+  padding: 10px;
+  margin:10px;
+  transition:all 0.2s linear;
+  color:$hd;
+  @include box-shadow(0px 0px 10px 1px blueviolet);
+  &:hover{
+  @include box-shadow(0px 0px 10px 8px blueviolet,0px 0px 10px 1px black inset); 
+  }  
+  background-color:$card;
+  
+  .logo{
+  border-radius:10px;
+  border:1px solid white;
+  max-width:80px;
+  max-height:80px;
+  margin:0;
+  @include box-shadow(0px 0px 10px 2px black);
+}
+
+#ch-name{
+  font-family:$font-hd;
+  font-size:20px;
+  justify-self:start; 
+  border-radius:10px;
+ text-shadow:  -1px 5px 4px white;
+}
+#des{
+  font-size:17px;
+  font-family:$font-gen;
+  color:$hd;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  justify-self:start;
+}
+.curr-stat-green{
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  background-color:green;
+  justify-self:end;
+ @include box-shadow(0px 0px 5px 0 black);
+    border:1px solid black;
+}
+.curr-stat-red{
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  background-color:red;
+  justify-self:end;
+ @include box-shadow(0px 0px 3px 0 black);
+  border:1px solid black;
+}
+}
+.streams-inner{
+  display:grid;
+  align-items:center;
+  grid-template-columns:1fr 3fr 1fr;
+  grid-template-rows:auto;
+
+}
+#all,#on,#off{transition:all 0.3s linear;}
+#all:hover{
+  border-bottom:3px solid white;  
+}
+#on:hover{
+  border-bottom:3px solid $on;
+}
+#off:hover{
+  border-bottom:3px solid $off;
+}
+
+
+#on1{
+  color:green;
+  font-size:16px;
+  outline:none;
+}
+
+footer{
+ //margin-bottom:0px;
+ font-family:$font-foo;
+ font-size:12px;
+ text-align:center;
+ font-weight:bold;
+  color:$hd;
+  opacity:0.6;
+  word-spacing:2px;
+  letter-spacing:1px;
+}
+.loader{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:7px;
+  background-color:navy;
+  .ld{
+    position:absolute;
+    height:100%;
+    width:0;
+    left:50%;
+  }
+  .ld:nth-child(1){
+    background-color:cyan;
+    animation:load 3s ease-in-out  infinite;
+  }
+  .ld:nth-child(2){
+    background-color:pink;
+    animation:load 3s ease-in-out 0.2s infinite;
+  }
+  .ld:nth-child(3){
+    background-color:maroon;
+    animation:load 3s ease-in-out 0.4s infinite;
+  }
+  .ld:nth-child(4){
+    background-color:yellow;
+    animation:load 3s ease-in-out 0.6s infinite;
+  }
+}
+@keyframes load{
+0%{
+    left:50%;
+    width:0;
+  }  
+40%{
+    left:0;
+    width:100%;
+  }
+  100%{
+    left:0;
+    width:100%;
+  }
+}
